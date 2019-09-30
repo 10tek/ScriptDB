@@ -10,9 +10,11 @@ namespace ScriptCreator
         static void Main(string[] args)
         {
             //Assembly assembly = Assembly.LoadFile(@"C:\Users\1\source\repos\TestApp\obj\Release\netcoreapp3.0\TestApp.dll");
+            Random random = new Random();
             Assembly assembly = Assembly.LoadFile(Console.ReadLine());
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("CREATE Database ");
+            stringBuilder.Append("CREATE Database dbGalym");
+            stringBuilder.Append($"{random.Next(int.MaxValue)};");
             var types = new Dictionary<string, string>();
             types.Add("System.String", "nvarchar(max)");
             types.Add("System.Guid", "uniqueidentifier");
